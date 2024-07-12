@@ -1,4 +1,4 @@
-# 50.005 2022 Programming Assignment 2
+# 50.005 Programming Assignment 2
 
 This assignment requires knowledge from Network Security and basic knowledge in Python.
 
@@ -26,20 +26,20 @@ python -m ensurepip --upgrade
 pip install -r requirements.txt
 ```
 
-### Run `./setup.,sh`
+### Run `./cleanup.,sh`
 
 Run this in the root project directory:
 
 ```
-chmod +x ./setup.,sh
-./setup.,sh
+chmod +x ./cleanup.sh
+./cleanup.sh
 ```
 
 This will create 3 directories: `source/recv_files`, `source/recv_files_enc`, and `source/send_files_enc`. They are all empty directories that can't be added in `.git`.
 
 ### Run server and client files
 
-In two separate shell sessions, run:
+In two separate shell sessions, run (assuming you're in root project directory):
 
 ```
 python3 source/ServerWithoutSecurity.py
@@ -49,6 +49,20 @@ and:
 
 ```
 python3 source/ClientWithoutSecurity.py
+```
+
+### Using different machines
+
+You can also host the Server file in another computer:
+
+```sh
+python3 source/ServerWithoutSecurity.py [port] 127.0.0.1
+```
+
+The client computer can connect to it using the command:
+
+```sh
+python3 source/ClientWithoutSecurity.py [port] [server-ip-address]
 ```
 
 ### Exiting pipenv shell
