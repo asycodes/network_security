@@ -26,6 +26,13 @@ python -m ensurepip --upgrade
 pip install -r requirements.txt
 ```
 
+If `ensurepip` is not available, you need to install it, e.g with Ubuntu:
+
+```
+# Adjust for your python version
+sudo apt-get install python3.10-venv
+```
+
 ### Run `./cleanup.,sh`
 
 Run this in the root project directory:
@@ -35,7 +42,7 @@ chmod +x ./cleanup.sh
 ./cleanup.sh
 ```
 
-This will create 3 directories: `source/recv_files`, `source/recv_files_enc`, and `source/send_files_enc`. They are all empty directories that can't be added in `.git`.
+This will create 3 directories: `/recv_files`, `/recv_files_enc`, and `/send_files_enc` in project's root. They are all empty directories that can't be added in `.git`.
 
 ### Run server and client files
 
@@ -56,13 +63,13 @@ python3 source/ClientWithoutSecurity.py
 You can also host the Server file in another computer:
 
 ```sh
-python3 source/ServerWithoutSecurity.py [port] 127.0.0.1
+python3 source/ServerWithoutSecurity.py [PORT] 0.0.0.0
 ```
 
 The client computer can connect to it using the command:
 
 ```sh
-python3 source/ClientWithoutSecurity.py [port] [server-ip-address]
+python3 source/ClientWithoutSecurity.py [PORT] [SERVER-IP-ADDRESS]
 ```
 
 ### Exiting pipenv shell
