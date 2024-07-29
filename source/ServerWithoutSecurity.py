@@ -63,9 +63,9 @@ def main(args):
                             filename_len = convert_bytes_to_int(
                                 read_bytes(client_socket, 8)
                             )
-                            filename = read_bytes(
-                                client_socket, filename_len
-                            ).decode("utf-8")
+                            filename = read_bytes(client_socket, filename_len).decode(
+                                "utf-8"
+                            )
                             # print(filename)
                         case 1:
                             # If the packet is for transferring a chunk of the file
@@ -80,9 +80,7 @@ def main(args):
                             filename = "recv_" + filename.split("/")[-1]
 
                             # Write the file with 'recv_' prefix
-                            with open(
-                                f"recv_files/{filename}", mode="wb"
-                            ) as fp:
+                            with open(f"recv_files/{filename}", mode="wb") as fp:
                                 fp.write(file_data)
                             print(
                                 f"Finished receiving file in {(time.time() - start_time)}s!"
@@ -98,11 +96,13 @@ def main(args):
         print(e)
         s.close()
 
+
 def handler(signal_received, frame):
     # Handle any cleanup here
-    print('SIGINT or CTRL-C detected. Exiting gracefully')
+    print("SIGINT or CTRL-C detected. Exiting gracefully")
     exit(0)
-    
+
+
 if __name__ == "__main__":
     # Tell Python to run the handler() function when SIGINT is recieved
     signal(SIGINT, handler)

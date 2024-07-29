@@ -42,9 +42,7 @@ def main(args):
         print("Connected")
 
         while True:
-            filename = input(
-                "Enter a filename to send (enter -1 to exit):"
-            ).strip()
+            filename = input("Enter a filename to send (enter -1 to exit):").strip()
 
             while filename != "-1" and (not pathlib.Path(filename).is_file()):
                 filename = input("Invalid filename. Please try again:").strip()
